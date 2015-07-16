@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.cgollner.unclouded.preferences.SwitchPreferenceCompat
+        android:key="status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:summary="@string/status_switch_summary"
+        android:title="@string/status_switch_title">
+    </com.cgollner.unclouded.preferences.SwitchPreferenceCompat>
+
+    <com.cgollner.unclouded.preferences.SwitchPreferenceCompat
+        android:key="onlineSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:summary="@string/online_support_switch_summary"
+        android:title="@string/online_supports_switch_title">
+    </com.cgollner.unclouded.preferences.SwitchPreferenceCompat>
+
+    <com.cgollner.unclouded.preferences.SwitchPreferenceCompat
+        android:key="historyProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:summary="@string/delite_history_product_switch_summary"
+        android:title="@string/delite_history_product_switch_title">
+    </com.cgollner.unclouded.preferences.SwitchPreferenceCompat>
+
+    <EditTextPreference
+        android:key="version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:summary="1.0"
+        android:title="Версия программы">
+    </EditTextPreference>
+</PreferenceScreen>

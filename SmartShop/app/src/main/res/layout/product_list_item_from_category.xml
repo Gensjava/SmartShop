@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="4dp"
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:id="@+id/cv"
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:id="@+id/product_from_category_photo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_name"
+                android:layout_toRightOf="@+id/product_from_category_photo"
+                android:layout_alignParentTop="true"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:id="@+id/product_from_category_age"
+                android:layout_toRightOf="@+id/product_from_category_photo"
+                android:layout_below="@+id/product_from_category_name"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:id="@+id/product_from_category_price"
+                android:layout_toRightOf="@+id/product_from_category_photo"
+                android:layout_below="@+id/product_from_category_age"
+                android:textSize="12sp"
+                android:textColor="@color/main_orange"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_im_cart"
+                android:src="@drawable/ic_action_by_a"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_im_heart"
+                android:src="@drawable/ic_launcher_heart_grey"
+                android:layout_alignTop="@+id/product_from_category_im_cart"
+                android:layout_toLeftOf="@+id/product_from_category_im_cart"
+                android:layout_toStartOf="@+id/product_from_category_im_cart"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_im_star"
+                android:src="@drawable/ic_action_star"
+                android:layout_alignTop="@+id/product_from_category_im_heart"
+                android:layout_toLeftOf="@+id/product_from_category_im_heart"
+                android:layout_toStartOf="@+id/product_from_category_im_heart"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_share"
+                android:src="@drawable/ic_action_procent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_from_category_new_goods"
+                android:src="@drawable/ic_action_new_goods"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

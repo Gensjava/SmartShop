@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ваш заказ принят"
+            android:id="@+id/order_send_text_one"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/order_send_imageView_one"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/order_send_imageView_one"
+            android:src="@drawable/web_hi_res_512"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="119dp"/>
+
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="В ближайшее время с вами свяжется менеджер"
+            android:id="@+id/order_send_text_two"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/order_send_text_one"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выход"
+            android:id="@+id/order_send_text_three"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:longClickable="false"
+            android:textColor="#ff2c6fff"
+            android:autoText="false"
+            android:layout_below="@+id/order_send_text_two"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="0.5dp"
+            android:text="Выход"
+            android:id="@+id/order_send_text_four"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:longClickable="false"
+            android:autoText="true"
+            android:background="#ff2c6fff"
+            android:layout_below="@+id/order_send_text_three"
+            android:layout_alignLeft="@+id/order_send_text_three"
+            android:layout_alignStart="@+id/order_send_text_three"/>
+
+    </RelativeLayout>
+</LinearLayout>

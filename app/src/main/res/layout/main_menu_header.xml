@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_action_massege"
+            android:id="@+id/main_menu_header_image"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_menu_header_text"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:gravity="fill_vertical"
+            android:layout_weight="0.7"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="12dp"
+            android:autoText="true"
+            android:textSize="12dp"
+            android:textIsSelectable="false"
+            android:textStyle="bold"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.7"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:clickable="true"
+        >
+
+            <TextView
+                android:id="@+id/main_menu_header_count"
+                android:layout_width="20dp"
+                android:minWidth="30sp"
+                android:textSize="10sp"
+                android:textColor="#ffffffff"
+                android:layout_height="20dp"
+                android:paddingBottom="1dp"
+                android:paddingRight="4dp"
+                android:paddingLeft="4dp"
+                android:background="@drawable/rounded_square_b"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:layout_marginTop="5dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/main_menu_header_space"
+        android:background="@color/space"
+        android:visibility="invisible"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
+
+
+</LinearLayout>

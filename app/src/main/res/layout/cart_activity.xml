@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@android:id/tabhost"
+         android:layout_width="match_parent"
+
+         android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_authorization_LinearLayout"
+        android:orientation="vertical" >
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tabStripEnabled="false"
+            android:background="@color/main_orange">
+        </TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7">
+
+            <LinearLayout
+                android:id="@+id/cart_tab1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.CartFragment"
+                    android:id="@+id/cart_fragment"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/main_list"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cart_tab2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.OrderMakeFragment"
+                    android:id="@+id/order_fragment"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/order"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cart_tab3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.OrderFinishFragment"
+                    android:id="@+id/order_finish_fragment"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/order_finish"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/main_orange"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Сумма:"
+                android:id="@+id/textView19"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/main_orange_text"
+                android:gravity="center|right"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="0.00"
+                android:id="@+id/cart_total_sum"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:gravity="center|right"
+                android:textColor="@color/main_orange_text"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text=" грн.  "
+                android:id="@+id/textView21"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/main_orange_text"
+                android:gravity="center|right"
+                android:layout_gravity="bottom"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:id="@+id/cart_next_page_left"
+                android:src="@drawable/ic_action_arrow_left_b"
+                android:layout_gravity="bottom"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:id="@+id/cart_next_page_right"
+                android:src="@drawable/ic_action_arrow_right_b"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</TabHost>

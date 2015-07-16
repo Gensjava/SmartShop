@@ -1,0 +1,144 @@
+package ua.smartshop.Fragments;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.widget.AbsListView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import ua.smartshop.Activity.MainActivity;
+import ua.smartshop.Adapters.MainAdapter;
+import ua.smartshop.Utils.AsyncWorker;
+import ua.smartshop.Enums.TypeRequest;
+import ua.smartshop.Utils.Сonstants;
+import ua.smartshop.interfaces.AsyncWorkerInterface;
+import ua.smartshop.Models.Product;
+import ua.smartshop.R;
+
+public class MainFragment extends Fragment implements AsyncWorkerInterface {
+
+    private int mItemNumber;
+    private ArrayList<Product[]> mPoducts = new ArrayList<>();
+    private MainAdapter mMainAdapter;
+    private ListView lvMain;
+    private ImageView IvUp;
+
+    @Override
+    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.main_list, container,
+                false);
+
+        mMainAdapter = new MainAdapter(getActivity(), mPoducts);
+        // настраиваем список
+        lvMain = (ListView) rootView.findViewById(R.id.lvMain);
+        lvMain.setAdapter(mMainAdapter);
+        IvUp = (ImageView) rootView.findViewById(R.id.lvMain_up);
+
+        lvMain.setOnScrollListener(new AbsListView.OnScrollListener() {
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+            }
+
+            public void onScroll(AbsListView view, int firstVisibleItem,
+                                 int visibleItemCount, int totalItemCount) {
+
+                if (firstVisibleItem + visibleItemCount == totalItemCount) {
+
+                    doSomethingAsyncOperaion(Product.getParamsUrlNumber(mItemNumber) , getString(R.string.a_get_all_products),  TypeRequest.GET);
+                    mItemNumber  += 2;
+                }
+
+                if (firstVisibleItem < 15){
+                    IvUp.setVisibility(View.INVISIBLE);
+                } else {
+                    IvUp.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        Сonstants.mPositionMenu = 1;
+
+        return rootView;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        Сonstants.mPositionMenu = 1;
+    }
+
+    @Override
+    public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //((ActionBarActivity)getActivity()).getSupportActionBar().show();
+    }
+
+    private void doSomethingAsyncOperaion(HashMap paramsUrl,String url, TypeRequest typeRequest) {
+
+        new AsyncWorker(this, paramsUrl, url, typeRequest, getActivity()) {
+        }.execute();
+    }
+
+    @Override
+    public void onBegin() {
+        MainActivity.ui_bar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onSuccess(final JSONArray mPJSONArray) {
+        try {
+            // проходим в цикле через все товары
+            Product[] Products  = new Product[mPJSONArray.length()];
+
+            for (byte i = 0; i < mPJSONArray.length(); i++) {
+                Products[i] =  new Gson().fromJson(mPJSONArray.getJSONObject(i).toString(), Product.class);
+            }
+
+            mPoducts.add(Products);
+            mMainAdapter.notifyDataSetChanged();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        MainActivity.ui_bar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onFailure(final Throwable t) {
+        MainActivity.ui_bar.setVisibility(View.INVISIBLE);
+        if (mPoducts.size() == 0 & getView()!= null){
+            ((TextView)  getView().findViewById(R.id.lvMain_text)).setText(getString(R.string.no_data));
+        }
+    }
+
+    @Override
+    public void onEnd() {
+        MainActivity.ui_bar.setVisibility(View.INVISIBLE);
+    }
+
+    public void onListScrolPosition(final int i){
+        lvMain.smoothScrollToPosition(i);
+    }
+
+    @Override
+    public Animation onCreateAnimation(final int transit, final boolean enter, final int nextAnim) {
+        return super.onCreateAnimation(transit, enter, nextAnim);
+    }
+}
+
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/LinearLayoutlvMain"
+    android:weightSum="1"
+    >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
+            android:id="@+id/lvMain"
+            android:layout_width="match_parent"
+            android:divider="@color/main_orange_text"
+            android:dividerHeight = "0.5dp"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lvMain_text"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_launcher_up"
+                android:layout_height="wrap_content"
+                android:id="@+id/lvMain_up"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:alpha="0.5"
+                android:adjustViewBounds="false"
+                android:onClick="onClick"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

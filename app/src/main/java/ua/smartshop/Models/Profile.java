@@ -1,0 +1,205 @@
+package ua.smartshop.Models;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
+import android.widget.ImageView;
+
+import java.util.HashMap;
+
+import ua.smartshop.BuildConfig;
+import ua.smartshop.Utils.Сonstants;
+
+/**
+ * Created by Gens on 01.03.2015.
+ */
+public class Profile {
+
+    private ImageView mFoto;
+    private String mID;
+    private String mSNP;
+    private String mGender;
+    private String mEmail;
+    private Order mOrders;
+    private String mDeliveryAddress;
+    private String mPhone;
+    private String mCity;
+    private String mAllOrders;
+    private String mIcqSkype;
+    //
+    public static boolean mAuthorization;
+    public static String mUserName;
+    private static AccountManager mAccountManager;
+
+    public Profile(final String ID, final String SNP, final String email) {
+        mID = ID;
+        mSNP = SNP;
+        mEmail = email;
+    }
+
+    public Profile(){
+
+    }
+
+    public ImageView getFoto() {
+        return mFoto;
+    }
+
+    public void setFoto(final ImageView foto) {
+        mFoto = foto;
+    }
+
+    public String getPhone() {
+        return mPhone;
+    }
+
+    public void setPhone(final String phone) {
+        mPhone = phone;
+    }
+
+    public static String getmUserName() {
+        return mUserName;
+    }
+
+    public static void setmUserName(final String mUserName) {
+        Profile.mUserName = mUserName;
+    }
+
+    public String getUserName() {
+        return mUserName;
+    }
+
+    public void setUserName(final String userName) {
+        mUserName = userName;
+    }
+
+    public Order getOrders() {
+        return mOrders;
+    }
+
+    public void setOrders(final Order orders) {
+        mOrders = orders;
+    }
+
+    public String getID() {
+        return mID;
+    }
+
+    public void setID(final String ID) {
+        mID = ID;
+    }
+
+    public String getSNP() {
+        return mSNP;
+    }
+
+    public void setSNP(final String SNP) {
+        mSNP = SNP;
+    }
+
+    public String getGender() {
+        return mGender;
+    }
+
+    public void setGender(final String gender) {
+        mGender = gender;
+    }
+
+    public String getEmail() {
+        return mEmail;
+    }
+
+    public void setEmail(final String email) {
+        mEmail = email;
+    }
+
+    public String getDeliveryAddress() {
+        return mDeliveryAddress;
+    }
+
+    public void setDeliveryAddress(final String deliveryAddress) {
+        mDeliveryAddress = deliveryAddress;
+    }
+
+    public String getAllOrders() {
+        return mAllOrders;
+    }
+
+    public void setAllOrders(final String allOrders) {
+        mAllOrders = allOrders;
+    }
+
+    public String getIcqSkype() {
+        return mIcqSkype;
+    }
+
+    public void setIcqSkype(final String icqSkype) {
+        mIcqSkype = icqSkype;
+    }
+
+    public String getCity() {
+        return mCity;
+    }
+
+    public void setCity(final String city) {
+        mCity = city;
+    }
+
+    public static AccountManager getmAccountManager() {
+        return mAccountManager;
+    }
+
+    public static void setmAccountManager(final AccountManager mAccountManager) {
+        Profile.mAccountManager = mAccountManager;
+    }
+
+    public void createAccount(final String login, final String password, Context context) {
+
+        if (login.toString().equals("") || password.toString().equals(""))
+        {
+            return;
+        }
+        else
+        {
+            final Account account = new Account(login, BuildConfig.APPLICATION_ID);
+
+            if (!(getAllAccount(context))){
+                mAuthorization = mAccountManager.addAccountExplicitly(account, password, null);
+            } else {
+                mAccountManager.setPassword(account, password);
+            }
+        }
+    }
+
+    public static boolean  getAllAccount(Context context){
+
+        mAccountManager = AccountManager.get(context);
+        mAuthorization = false;
+
+        final Account[] accounts = mAccountManager.getAccounts();
+        for (Account account : accounts) {
+           mAuthorization = account.type.equalsIgnoreCase(BuildConfig.APPLICATION_ID);
+           mUserName = account.name;
+        }
+        return mAuthorization;
+    }
+
+
+    public static HashMap<String, String> getParamsUrl(String userName, String password){
+
+        HashMap<String, String> params = new HashMap<String, String>();
+
+        params.put(Сonstants.TAG_USER_NAME, userName);
+        params.put(Сonstants.TAG_PASWWORD, password);
+        return params;
+    }
+    public static HashMap<String, String> getParamsuserNameUrl(String userName){
+
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put(Сonstants.TAG_USER_NAME, userName);
+
+        return params;
+    }
+}

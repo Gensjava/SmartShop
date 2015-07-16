@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/product_filtr_seekBar_textView_start"
+        android:paddingTop="15dp"
+        android:paddingLeft="12dp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15 000"
+        android:id="@+id/product_filtr_seekBar_textView_end"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/product_filtr_seekBar"
+
+        app:dsb_progressColor="@color/main_orange"
+        app:dsb_trackColor ="@color/main_orange_text"
+        app:dsb_indicatorColor  ="@color/main_orange"
+        app:dsb_rippleColor   ="@color/main_orange"
+        app:dsb_min="0"
+        app:dsb_max="15000"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/product_filtr_seekBar_textView_on"
+        android:textColor="@android:color/background_light"
+        android:gravity="center_horizontal"
+        android:enabled="false"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentEnd="false"/>
+
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/product_filtr_seekBar_switch"
+        android:background="@null"
+        android:layout_below="@+id/product_filtr_seekBar"
+        android:layout_alignRight="@+id/product_filtr_seekBar_textView_end"
+        android:layout_alignEnd="@+id/product_filtr_seekBar_textView_end"
+        android:textColor="@android:color/background_light"
+        android:paddingRight="15dp"
+        android:textColorHighlight="@android:color/background_light"
+        android:shadowColor="@android:color/background_light"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"/>
+
+</RelativeLayout>

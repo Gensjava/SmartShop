@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:tools="http://schemas.android.com/tools"
+         android:id="@android:id/tabhost"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tabStripEnabled="false"
+            android:background="@color/main_orange">
+        </TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7">
+
+            <LinearLayout
+                android:id="@+id/product_tab1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.ProducttItemFragment"
+                    android:id="@+id/product_fragment_item"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/product_list"
+
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/product_tab2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.ProductDiscriptionFragment"
+                    android:id="@+id/product_fragment_discription"
+                    android:layout_height="match_parent"
+                    tools:layout="@layout/product_discription"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/product_tab3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <fragment
+                    android:name="ua.smartshop.Fragments.ProducttItemDeliverFragment"
+                    android:id="@+id/product_fragment_deliver"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/order_finish"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="@color/main_orange"
+            android:layout_gravity="top">
+
+            <ImageView
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="Оплатить >>"
+                android:id="@+id/product_next_page_left"
+                android:layout_gravity="center_vertical|right"
+                android:src="@drawable/ic_action_arrow_left_b"
+                android:background="@color/main_orange"/>
+
+            <ImageView
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="Оплатить >>"
+                android:id="@+id/product_next_page_right"
+                android:src="@drawable/ic_action_arrow_right_b"
+                android:background="@color/main_orange"
+                android:layout_weight="2"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</TabHost>

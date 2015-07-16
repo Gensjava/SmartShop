@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/background_light">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/avatar"
+            android:id="@+id/profile_avatar"
+            android:adjustViewBounds="false"
+            android:background="@color/avatar_fon"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/profile_photo"
+                android:src="@drawable/ic_action_photo_reanc"
+                android:layout_marginTop="132dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:onClick="onClick"
+                android:nestedScrollingEnabled="false"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/profile_galery"
+                android:src="@drawable/ic_launcher_galery"
+                android:onClick="onClick"
+                android:nestedScrollingEnabled="false"
+                android:layout_alignTop="@+id/profile_photo"
+                android:layout_toLeftOf="@+id/profile_photo"
+                android:layout_toStartOf="@+id/profile_photo"
+                android:layout_marginRight="5dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal" android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    >
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Курьерская служба"
+            android:id="@+id/profile_registration_list_panel_text_d"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/sub_main_orange"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Новая почта"
+            android:checked="true"
+            android:id="@+id/profile_registration_list_panel_radio_new"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="14dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Интайм"
+            android:id="@+id/profile_registration_list_panel_radio_in"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="35dp"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* поля обязательны для заполнения"
+            android:id="@+id/profile_registration_list_panel_text"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src = "@drawable/ic_launcher_cancel"
+                android:id="@+id/profile_registration_list_panel_cancel"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginStart="39dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src = "@drawable/ic_launcher_ok"
+                android:id="@+id/profile_registration_list_panel_ok"
+                android:layout_marginRight="55dp"
+                android:layout_marginEnd="65dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+    </RadioGroup>
+
+</LinearLayout>
