@@ -104,7 +104,6 @@ public class ProductFragment extends android.support.v4.app.Fragment implements 
 
             mPoducts.add(Products);
             mMainAdapter.notifyDataSetChanged();
-            ((TextView)  getView().findViewById(R.id.lvMain_text)).setText("");
 
         } catch (JSONException e) {
             e.printStackTrace();
